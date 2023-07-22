@@ -5,14 +5,27 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+
+	bubble_sort "github.com/ullasasindhur/algoexpert-golang/Sorting/bubble_sort"
+	insertion_sort "github.com/ullasasindhur/algoexpert-golang/Sorting/insertion_sort"
+	quicksort "github.com/ullasasindhur/algoexpert-golang/Sorting/quick_sort"
+	selection_sort "github.com/ullasasindhur/algoexpert-golang/Sorting/selection_sort"
 )
 
 func main() {
 	var scanner *bufio.Scanner = bufio.NewScanner(os.Stdin)
-	var input string = get_input(scanner)
+	var input = get_input(scanner)
 	var stringArray *[]string = split_string(&input, ' ')
 	var intArray *[]int = stringArray_to_intArray(stringArray)
-	bubble_sort(intArray)
+	selection_sort.Selection_sort(get_copy_slice(*intArray))
+	insertion_sort.Insertion_sort(get_copy_slice(*intArray))
+	bubble_sort.Bubble_sort(get_copy_slice(*intArray))
+	quicksort.Quick_sort(get_copy_slice(*intArray))
+}
+
+func get_input(scanner *bufio.Scanner) string {
+	scanner.Scan()
+	return scanner.Text()
 }
 
 func split_string(input *string, delim byte) *[]string {
@@ -28,17 +41,12 @@ func split_string(input *string, delim byte) *[]string {
 	return &stringArray
 }
 
-func get_input(scanner *bufio.Scanner) string {
-	scanner.Scan()
-	return scanner.Text()
-}
-
 func stringArray_to_intArray(stringArray *[]string) *[]int {
 	var intArray []int = make([]int, 0)
 	for i := 0; i < len(*stringArray); i++ {
 		value, err := strconv.Atoi((*stringArray)[i])
 		if err != nil {
-			fmt.Println("Given input contains invalid data type or entered a trialing space")
+			fmt.Println("Invalid input data type or trailing space is present.")
 			os.Exit(0)
 		} else {
 			intArray = append(intArray, value)
@@ -47,19 +55,8 @@ func stringArray_to_intArray(stringArray *[]string) *[]int {
 	return &intArray
 }
 
-func bubble_sort(array *[]int) {
-	var arrayLen int = len(*array)
-	var counter int
-	var isSorted bool
-	for !isSorted {
-		isSorted = true
-		for i := 0; i < arrayLen-1-counter; i++ {
-			if (*array)[i] > (*array)[i+1] {
-				(*array)[i], (*array)[i+1] = (*array)[i+1], (*array)[i]
-				isSorted = false
-			}
-		}
-		counter++
-	}
-	fmt.Println(*array)
+func get_copy_slice(input []int) *[]int {
+	var output []int = make([]int, len(input))
+	copy(output, input)
+	return &output
 }
