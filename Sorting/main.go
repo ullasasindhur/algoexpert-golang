@@ -7,6 +7,7 @@ import (
 	"strconv"
 
 	bubble_sort "github.com/ullasasindhur/algoexpert-golang/Sorting/bubble_sort"
+	heapsort "github.com/ullasasindhur/algoexpert-golang/Sorting/heap_sort"
 	insertion_sort "github.com/ullasasindhur/algoexpert-golang/Sorting/insertion_sort"
 	quicksort "github.com/ullasasindhur/algoexpert-golang/Sorting/quick_sort"
 	selection_sort "github.com/ullasasindhur/algoexpert-golang/Sorting/selection_sort"
@@ -21,6 +22,7 @@ func main() {
 	insertion_sort.Insertion_sort(get_copy_slice(*intArray))
 	bubble_sort.Bubble_sort(get_copy_slice(*intArray))
 	quicksort.Quick_sort(get_copy_slice(*intArray))
+	heapsort.Heap_Sort(get_copy_slice(*intArray))
 }
 
 func get_input(scanner *bufio.Scanner) string {
