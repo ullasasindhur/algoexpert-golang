@@ -3,7 +3,7 @@ package heapsort
 import "fmt"
 
 func Heap_Sort(input *[]int) {
-	fmt.Println("Heap Sort")
+	fmt.Println("Heap Sort:")
 	heapify(input, 0, len(*input)-1)
 	fmt.Println(*input)
 }
