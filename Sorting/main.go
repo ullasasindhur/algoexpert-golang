@@ -10,7 +10,9 @@ import (
 	heapsort "github.com/ullasasindhur/algoexpert-golang/Sorting/heap_sort"
 	insertion_sort "github.com/ullasasindhur/algoexpert-golang/Sorting/insertion_sort"
 	quicksort "github.com/ullasasindhur/algoexpert-golang/Sorting/quick_sort"
+	radixsort "github.com/ullasasindhur/algoexpert-golang/Sorting/radix_sort"
 	selection_sort "github.com/ullasasindhur/algoexpert-golang/Sorting/selection_sort"
+	threenumbersort "github.com/ullasasindhur/algoexpert-golang/Sorting/three_number_sort"
 )
 
 func main() {
@@ -23,6 +25,10 @@ func main() {
 	bubble_sort.Bubble_sort(get_copy_slice(*intArray))
 	quicksort.Quick_sort(get_copy_slice(*intArray))
 	heapsort.Heap_Sort(get_copy_slice(*intArray))
+	var three_numbers_arr []int = []int{-1, 1, 0, 0, -1, 0, -1, 1, 0, -1}
+	var three_number_order []int = []int{-1, 0, 1}
+	threenumbersort.Three_Number_Sort(&three_numbers_arr, &three_number_order)
+	radixsort.Radix_Sort(get_copy_slice(*intArray))
 }
 
 func get_input(scanner *bufio.Scanner) string {
