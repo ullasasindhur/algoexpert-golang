@@ -7,6 +7,7 @@ import (
 	"strconv"
 
 	bubble_sort "github.com/ullasasindhur/algoexpert-golang/Sorting/bubble_sort"
+	"github.com/ullasasindhur/algoexpert-golang/Sorting/count_inversions"
 	heapsort "github.com/ullasasindhur/algoexpert-golang/Sorting/heap_sort"
 	insertion_sort "github.com/ullasasindhur/algoexpert-golang/Sorting/insertion_sort"
 	"github.com/ullasasindhur/algoexpert-golang/Sorting/merge_sort"
@@ -31,6 +32,7 @@ func main() {
 	threenumbersort.Three_Number_Sort(&three_numbers_arr, &three_number_order)
 	radixsort.Radix_Sort(get_copy_slice(*intArray))
 	merge_sort.Merge_sort(get_copy_slice(*intArray))
+	count_inversions.Count_inversions(get_copy_slice(*intArray))
 }
 
 func get_input(scanner *bufio.Scanner) string {
