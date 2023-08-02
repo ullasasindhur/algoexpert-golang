@@ -12,15 +12,15 @@ func Binary_search(input []int, value int) {
 }
 
 func search(input []int, value int, start int, end int) {
-	if start <= end {
+	for start <= end {
 		var mid int = (start + end) / 2
 		if input[mid] == value {
 			fmt.Println(value, "is found in the input array")
 			os.Exit(0)
 		} else if input[mid] < value {
-			search(input, value, mid+1, end)
+			start = mid + 1
 		} else {
-			search(input, value, start, mid-1)
+			end = mid - 1
 		}
 	}
 }
